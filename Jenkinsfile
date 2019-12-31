@@ -24,9 +24,9 @@ node {
   // 'dockerhub' is an id in our jenkins installation which has the credentials to use with
   // dockerhub
   docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
-   // You will need to change also the 'username' with your dockerhub username
+   // You will need to change also the 'kpat' with your dockerhub username
    // And 'dockerfile-jenkinsfile-demo' with your dockerhub image name 
-   def app = docker.build("username/dockerfile-jenkinsfile-demo:${commit_id}", "--no-cache -f ./dockerfiles/Dockerfile .").push()
+   def app = docker.build("kpat/dockerfile-jenkinsfile-demo:${commit_id}", "--no-cache -f ./dockerfiles/Dockerfile .").push()
   }
  }       
  
