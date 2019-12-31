@@ -3,4 +3,5 @@ RUN pip install pipenv
 
 COPY / /app
 WORKDIR /app
-RUN pip install -r ./tests/requirements.txt
+RUN pip install -r ./requirements.txt
+# CMD []
