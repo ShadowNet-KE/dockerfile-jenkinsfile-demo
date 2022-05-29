@@ -13,7 +13,7 @@ node("dind-1.0.0") {
  stage('test') {
   // Build the docker image and run tests
   // If needed you can define a Dockerfile suitable for testing
-  def myTestContainer = docker.build("test-python", "--no-cache -f ./dockerfiles/Dockerfile .")
+  def myTestContainer = docker.build("test-python", "--no-cache -f Dockerfile .")
   myTestContainer.inside {
    sh 'python ./tests/tests.py'
   }
@@ -26,7 +26,7 @@ node("dind-1.0.0") {
   docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
    // You will need to change also the 'kpat' with your dockerhub username
    // And 'dockerfile-jenkinsfile-demo' with your dockerhub image name 
-   def app = docker.build("kpat/dockerfile-jenkinsfile-demo:${commit_id}", "--no-cache -f ./dockerfiles/Dockerfile .").push()
+   def app = docker.build("kpat/dockerfile-jenkinsfile-demo:${commit_id}", "--no-cache -f Dockerfile .").push()
   }
  }       
  
