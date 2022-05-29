@@ -1,4 +1,4 @@
-node {
+node("dind-1.0.0") {
  
  //commit_id will be also the tag for docker registry
  def commit_id
